@@ -1,4 +1,3 @@
-import {ReactNode} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -22,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({
           onPress={() => console.log('On press back ')}
           style={styles.backButtonView}>
           <Image
-            source={require('../assets/ic_backButton.png')}
+            source={require('../assets/images/ic_backButton.png')}
             style={styles.buttonImage}
           />
         </TouchableOpacity>
@@ -33,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({
         onPress={() => console.log('On press add ')}
         style={styles.addButtonView}>
         <Image
-          source={require('../assets/ic_addButton.png')}
+          source={require('../assets/images/ic_addButton.png')}
           style={styles.buttonImage}
         />
       </TouchableOpacity>

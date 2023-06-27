@@ -1,8 +1,9 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import {NavigationParamList} from '../type/navigationType';
-import { SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import Header from '../components/Header';
-
+import EmptyCardView from '../components/EmptyCardView';
+import CardView from '../components/CardView';
 
 export type CardListScreenProps = StackScreenProps<
   NavigationParamList,
@@ -11,8 +12,12 @@ export type CardListScreenProps = StackScreenProps<
 
 const CardListScreen = ({navigation, route}: CardListScreenProps) => {
   return (
-    <SafeAreaView style={styles.flex}>
-      <Header title='Cards' hasBackButton={false}/>
+    <SafeAreaView style={styles.container}>
+      <Header title="Cards" hasBackButton={false} />
+      {/* <View style={styles.emptyCardView}>
+        <EmptyCardView />
+      </View> */}
+      <CardView />
     </SafeAreaView>
   );
 };
@@ -20,5 +25,11 @@ const CardListScreen = ({navigation, route}: CardListScreenProps) => {
 export default CardListScreen;
 
 const styles = StyleSheet.create({
-  flex: {flex: 1},
+  container: {flex: 1},
+  emptyCardView: {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    marginBottom: 40,
+  },
 });
