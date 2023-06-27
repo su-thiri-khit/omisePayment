@@ -12,7 +12,7 @@ export type CardListScreenProps = StackScreenProps<
 const CardListScreen = ({navigation, route}: CardListScreenProps) => {
   return (
     <SafeAreaView style={styles.flex}>
-      <Header />
+      <Header title='Cards' hasBackButton={false}/>
     </SafeAreaView>
   );
 };

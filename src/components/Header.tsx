@@ -1,24 +1,42 @@
 import {ReactNode} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export type HeaderProps = {
   hasBackButton?: boolean;
   title: string;
-  rightTitle?: ReactNode;
-  children?: ReactNode;
+//   rightTitle?: ReactNode;
+//   children?: ReactNode;
 };
 
 const Header: React.FC<HeaderProps> = ({
   hasBackButton = true,
   title = '',
-  rightTitle,
-  children,
+//   rightTitle,
+//   children,
 }) => {
   return (
     <View style={styles.headerView}>
-      <Text style={styles.leftView}>Header</Text>
-      <Text style={styles.centerView}>Header</Text>
-      <Text style={styles.rightView}>Header</Text>
+      {hasBackButton && (
+        <TouchableOpacity
+          onPress={() => console.log('On press back ')}
+          style={styles.backButtonView}>
+          <Image
+            source={require('../assets/ic_backButton.png')}
+            style={styles.buttonImage}
+          />
+        </TouchableOpacity>
+      )}
+
+      <Text style={styles.title}>{title}</Text>
+      <TouchableOpacity
+        onPress={() => console.log('On press add ')}
+        style={styles.addButtonView}>
+        <Image
+          source={require('../assets/ic_addButton.png')}
+          style={styles.buttonImage}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -28,16 +46,30 @@ export default Header;
 const styles = StyleSheet.create({
   headerView: {
     padding: 16,
+    alignItems: 'center',
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: 'yellow'
   },
-  leftView: {
+  backButtonView: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonImage: {
+    width: 24,
+    height: 24,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center',
     flex: 1,
   },
-  centerView: {
-    flex: 3,
+  addButtonView: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  rightView: {
-    flex: 1,
-  }
 });
