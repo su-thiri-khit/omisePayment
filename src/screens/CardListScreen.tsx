@@ -1,15 +1,24 @@
-import { StackScreenProps } from "@react-navigation/stack";
-import { NavigationParamList } from "../navigations/AppNavigator";
-import { View, Text } from "react-native";
+import {StackScreenProps} from '@react-navigation/stack';
+import {NavigationParamList} from '../type/navigationType';
+import { SafeAreaView, StyleSheet} from 'react-native';
+import Header from '../components/Header';
 
-export type CardListScreenProps = StackScreenProps<NavigationParamList, 'CardListScreen' >
 
-const CardListScreen = ({ navigation, route}: CardListScreenProps) => {
-    return (
-        <View>
-           <Text>Card List Screen </Text> 
-        </View>
-    )
-}
+export type CardListScreenProps = StackScreenProps<
+  NavigationParamList,
+  'CardListScreen'
+>;
 
-export default CardListScreen
+const CardListScreen = ({navigation, route}: CardListScreenProps) => {
+  return (
+    <SafeAreaView style={styles.flex}>
+      <Header />
+    </SafeAreaView>
+  );
+};
+
+export default CardListScreen;
+
+const styles = StyleSheet.create({
+  flex: {flex: 1},
+});

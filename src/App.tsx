@@ -1,26 +1,8 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import CardListScreen from './screens/CardListScreen';
-
-export type NavigationParamList = {
-  CardListScreen: undefined;
-  AddCardListScreen: undefined;
-};
-
-const Stack = createStackNavigator();
+import React from 'react';
+import AppNavigator from './navigation/AppNavigator';
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='CardList'>
-        <Stack.Screen
-          name="CardList"
-          component={CardListScreen}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <AppNavigator />;
 };
 
 export default App;
