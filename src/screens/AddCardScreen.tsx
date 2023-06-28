@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import {TextInput} from 'react-native-gesture-handler';
 import {useState} from 'react';
 import AddCardBottomImageView from '../components/AddCardBottomImageView';
+import AddCardButton from '../components/AddCardButton';
 
 export type AddCardScreenProps = StackScreenProps<
   NavigationParamList,
@@ -113,7 +114,9 @@ const AddCardScreen = ({navigation, route}: AddCardScreenProps) => {
           </View>
         </View>
         <AddCardBottomImageView/>
+
       </View>
+      <AddCardButton />
     </SafeAreaView>
   );
 };

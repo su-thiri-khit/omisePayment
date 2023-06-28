@@ -8,7 +8,7 @@ const AddCardBottomImageView: React.FC = () => {
         style={[styles.image, {marginRight : 20}]}
       />
       <Image
-        source={require('../assets/images/ic_verified_by_visa.png')}
+        source={require('../assets/images/ic_masterCard_securecode.png')}
         style={[styles.image, {marginRight: 20}]}
       />
       <Image
@@ -33,5 +33,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 20,
     resizeMode: 'contain',
+    alignSelf: 'center'
   },
 });
