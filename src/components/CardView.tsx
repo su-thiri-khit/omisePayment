@@ -9,7 +9,7 @@ const EmptyCardView: React.FC<CardViewProps> = ({onPressAddNewCard}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Image
-        source={require('../assets/images/ic_addButton.png')}
+        source={require('../assets/images/ic_visa.png')}
         style={styles.visaImage}
       />
       <View style={styles.cardNumberView}>
