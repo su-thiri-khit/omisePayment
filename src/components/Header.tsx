@@ -1,24 +1,25 @@
+import { ReactNode } from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export type HeaderProps = {
   hasBackButton?: boolean;
+  onPressBackButton?: () => void;
   title: string;
-//   rightTitle?: ReactNode;
-//   children?: ReactNode;
+  rightTitle?: ReactNode;
 };
 
 const Header: React.FC<HeaderProps> = ({
   hasBackButton = true,
+  onPressBackButton,
   title = '',
-//   rightTitle,
-//   children,
+  rightTitle
 }) => {
   return (
     <View style={styles.headerView}>
       {hasBackButton && (
         <TouchableOpacity
-          onPress={() => console.log('On press back ')}
+          onPress={onPressBackButton && onPressBackButton}
           style={styles.backButtonView}>
           <Image
             source={require('../assets/images/ic_backButton.png')}
@@ -28,14 +29,7 @@ const Header: React.FC<HeaderProps> = ({
       )}
 
       <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity
-        onPress={() => console.log('On press add ')}
-        style={styles.addButtonView}>
-        <Image
-          source={require('../assets/images/ic_addButton.png')}
-          style={styles.buttonImage}
-        />
-      </TouchableOpacity>
+      {rightTitle && rightTitle}
     </View>
   );
 };
@@ -56,19 +50,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonImage: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',    
   },
   title: {
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
     flex: 1,
-  },
-  addButtonView: {
-    width: 30,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

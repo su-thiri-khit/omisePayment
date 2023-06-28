@@ -9,7 +9,7 @@ const EmptyCardView: React.FC<EmptyCardViewProps> = ({onPressAddNewCard}) => {
   return (
     <View>
       <Image
-        source={require('../assets/images/ic_addButton.png')}
+        source={require('../assets/images/ic_card.png')}
         style={styles.card}
       />
       <Text style={styles.noCardsFoundText}>No Cards Found</Text>

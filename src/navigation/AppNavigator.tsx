@@ -1,5 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationParamList} from '../type/navigationType';
+import {NavigationParamList, ScreenName} from '../type/navigationType';
 import {NavigationContainer} from '@react-navigation/native';
 import CardListScreen from '../screens/CardListScreen';
 import AddCardScreen from '../screens/AddCardScreen';
@@ -9,14 +9,14 @@ const Stack = createStackNavigator<NavigationParamList>();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="CardListScreen">
+      <Stack.Navigator>
         <Stack.Screen
-          name="CardList"
+          name={ScreenName.CardList}
           component={CardListScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="AddCard"
+          name={ScreenName.AddCard}
           component={AddCardScreen}
           options={{headerShown: false}}
         />
